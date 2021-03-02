@@ -13,17 +13,15 @@ app.use(express.json());
 const PORT = process.env.PORT || 8080;
 
 // Declare routes for API
-// Declare an instance of the express Router
-const router = express.Router();
 
-// Test the route
-router.get('/', (req, res) => {
-    res.json({ message: 'Success!' });
+// // Test the route
+// router.get('/', (req, res) => {
+//     res.json({ message: 'Success!' });
+// });
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/index.html'))
 });
 
-// Register routes for API
-app.use('/api', router);
-
 // Starting the server
-app.listen(PORT);
-console.log(`Listening on http://localhost:${PORT}`);
+app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
