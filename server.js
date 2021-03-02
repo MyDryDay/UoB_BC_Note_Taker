@@ -6,5 +6,8 @@ const path = require('path');
 const app = express();
 
 // Add middleware
-app.use.urlencoded({extended: true});
-app.use.json();
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+// Set the port
+const PORT = process.env.PORT || 8080;
