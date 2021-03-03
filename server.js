@@ -9,6 +9,8 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.use(express.static(__dirname + '/public/assets'));
+
 // Set the port
 const PORT = process.env.PORT || 8080;
 
