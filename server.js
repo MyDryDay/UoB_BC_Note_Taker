@@ -56,8 +56,15 @@ app.post('/api/notes',  (req, res) => {
     // A variable initialised by the value of oldNotes that's been JSON.stringified
     // Parameters: null = all properties of object are present in JSON string, 5 = added whitespace for readability
     const addToDatabase = JSON.stringify(oldNotes, null, 5);
-    // Insert function to write to the database here
+    updateDatabase(addToDatabase);
 });
+
+updateDatabase = (note) => {
+    fs.writeFile('./db/db.json', note, (err) => {
+        if (err) throw err;
+        console.log('Added note');
+    })
+}
 
 // Starting the server
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
