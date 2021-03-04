@@ -46,8 +46,8 @@ app.post('/api/notes',  (req, res) => {
     // Assign a unique id to each new note
     addNote.id = uniqid();
     console.log(addNote);
-    // A variable initialised wiht the db.json file
-    // i.e. a variable that contains all existing notes in an array or JSON objects
+    // A variable initialised with the values of the db.json file
+    // i.e. a variable that contains all existing notes in the array of JSON objects in db.json
     const oldNotes = require('./db/db.json');
     // Push the new note to the oldNotes variable
     // Simply adding new notes to the oldNotes array, not yet permanently writing to the db.json file
@@ -59,7 +59,9 @@ app.post('/api/notes',  (req, res) => {
     updateDatabase(addToDatabase);
 });
 
+// Function to write the added notes to the db.json file
 updateDatabase = (note) => {
+    // Writing to file db.json with the parameter being the addToDatabase variable, & a callback function if error
     fs.writeFile('./db/db.json', note, (err) => {
         if (err) throw err;
         console.log('Added note');
