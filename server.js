@@ -33,6 +33,16 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/notes.html'))
 });
 
+// // Gets the styles.css file
+// app.get('/assets/css/styles.css', (req, res) => {
+//     res.sendFile(path.join(__dirname + '/public/assets/css/styles.css'))
+// });
+
+// // Gets the index.js file
+// app.get('/assets/js/index.js', (req, res) => {
+//     res.sendFile(path.join(__dirname + '/public/assets/js/index.js'))
+// });
+
 // Gets the api route for notes (db.json)
 app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname + '/db/db.json'))
