@@ -67,6 +67,7 @@ app.post('/api/notes',  (req, res) => {
     // Parameters: null = all properties of object are present in JSON string, 5 = added whitespace for readability
     const addToDatabase = JSON.stringify(oldNotes, null, 5);
     updateDatabase(addToDatabase);
+    return res.json(oldNotes);
 });
 
 // Function to write the added notes to the db.json file
